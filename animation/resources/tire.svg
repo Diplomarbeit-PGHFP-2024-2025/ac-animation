@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="18.61138mm"
+   height="18.61138mm"
+   viewBox="0 0 18.61138 18.61138"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   sodipodi:docname="tire.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.1985383"
+     inkscape:cx="-9.1778463"
+     inkscape:cy="95.950211"
+     inkscape:window-width="1512"
+     inkscape:window-height="945"
+     inkscape:window-x="0"
+     inkscape:window-y="37"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" /><defs
+     id="defs1" /><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-124.2842,-148.77462)"><path
+       fill="currentColor"
+       fill-rule="evenodd"
+       d="m 133.5899,167.386 c 5.13951,0 9.30568,-4.16617 9.30568,-9.30571 0,-5.13952 -4.16617,-9.30567 -9.30568,-9.30567 -5.13955,0 -9.3057,4.16615 -9.3057,9.30567 0,5.13954 4.16615,9.30571 9.3057,9.30571 m 5.54062,-8.60778 h -2.83734 a 2.7917036,2.7917036 0 0 1 -0.74723,1.2935 l 1.41819,2.45669 a 5.583407,5.583407 0 0 0 2.16638,-3.75019 m -3.37425,4.44999 -1.41912,-2.45671 a 2.7917036,2.7917036 0 0 1 -1.4945,0 l -1.4191,2.45671 a 5.583407,5.583407 0 0 0 2.16635,0.43549 c 0.76771,0 1.50005,-0.15547 2.16637,-0.43549 m -5.54061,-0.69885 1.41817,-2.45671 a 2.7917036,2.7917036 0 0 1 -0.74816,-1.29443 h -2.83637 a 5.583407,5.583407 0 0 0 2.16636,3.75019 m 8.91486,-5.14696 h -2.83734 a 2.7917036,2.7917036 0 0 0 -0.74723,-1.2935 l 1.41819,-2.45669 a 5.583407,5.583407 0 0 1 2.16638,3.75019 m -3.37425,-4.44999 a 5.583407,5.583407 0 0 0 -2.16637,-0.43457 c -0.76771,0 -1.50007,0.15544 -2.16635,0.43551 l 1.4191,2.4567 a 2.7917036,2.7917036 0 0 1 1.4945,0 z m -4.12244,3.15744 -1.41817,-2.45669 a 5.583407,5.583407 0 0 0 -2.16636,3.75019 h 2.83728 c 0.12841,-0.49789 0.39085,-0.9427 0.74725,-1.2935"
+       clip-rule="evenodd"
+       id="path1-2"
+       style="display:inline;fill:#262e38;fill-opacity:1;stroke-width:0.930567"
+       inkscape:label="Wheel2" /></g></svg>
