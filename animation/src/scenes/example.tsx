@@ -1,6 +1,6 @@
 import {Circle, Img, Node, makeScene2D} from '@motion-canvas/2d';
 import {all, createEaseInBack, createRef, createRefMap, createSignal, waitFor} from '@motion-canvas/core';
-import { Car } from '../custom/car'
+import {Car, TIRE_DIAMETER} from '../custom/car'
 
 const TIRE_SOURCE = "resources/tire.svg"
 
@@ -13,12 +13,10 @@ export default makeScene2D(function* (view) {
     </>);
 
     yield* all(
-        car().tireRotation(3600, 20),
-        car().position([250,0], 20)
+        car().position([TIRE_DIAMETER*Math.PI,0], 5)
     )
     yield* waitFor(1)
     yield* all(
-        car().tireRotation(-3600, 20),
-        car().position([0,0], 20)
+        car().position([0,0], 5)
     )
 });
