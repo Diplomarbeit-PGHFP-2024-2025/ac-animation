@@ -1,29 +1,71 @@
-import {Circle, Img, Node, makeScene2D, Grid, View2D, Rect} from '@motion-canvas/2d';
-import {all, any, chain, createRef, Reference, ThreadGenerator, waitFor} from "@motion-canvas/core";
+import {Circle, Img, Node, makeScene2D, Grid, View2D, Rect, Line} from '@motion-canvas/2d';
+import {all, any, chain, createRef, createSignal, Reference, ThreadGenerator, waitFor} from "@motion-canvas/core";
+import SAT, {Vector} from 'sat';
 
 type House = {
     x: number;
     y: number;
     width: number;
     height: number;
+    rotation: number
 }
 
 const CELL_SIZE = 80;
 
 const HOUSES: House[] = [
-    {x: 10, y: -300, width: 400, height: 200},
-    {x: 400, y: 0, width: 500, height: 200},
-    {x: -300, y: 200, width: 300, height: 300,},
+    {x: 10, y: -300, width: 400, height: 200, rotation: 30},
+    {x: 450, y: 0, width: 500, height: 200, rotation: 0},
+    {x: -300, y: 200, width: 300, height: 300, rotation: 45},
 ]
+
+const BASE_PATH: [number, number][] = [[-13, -4], [-10, -4], [-10, -3], [-9, -3], [-9, -2], [-8, -2], [-3, -2], [-3, -1], [-2, -1], [-2, 0], [-1, 0], [-1, 1], [1, 1], [1, 2], [12, 2]]
+const OPTIMIZED_PATH: [number, number][] = [[-13, -4], [-10, -4], [-3, -2], [1, 2], [12, 2]]
 
 
 export default makeScene2D(function* (view) {
     yield* all(
         displayHouses(view),
         displayGrid(view),
-        displayGridMarker(view)
+        displayGridMarker(view),
+        displayPath(view)
     )
 })
+
+function* displayPath(parent: Node): ThreadGenerator {
+    const line = createRef<Line>();
+
+    const progress = createSignal(0);
+
+    const basePath: [number, number][] = BASE_PATH.map((point) => [point[0] * CELL_SIZE + CELL_SIZE / 2, point[1] * CELL_SIZE + CELL_SIZE / 2]);
+    const optimizedPath: [number, number][] = OPTIMIZED_PATH.map((point) => [point[0] * CELL_SIZE + CELL_SIZE / 2, point[1] * CELL_SIZE + CELL_SIZE / 2]);
+
+    parent.add(
+        <>
+            <Line
+                ref={line}
+                points={basePath}
+                end={0}
+                stroke={'lightseagreen'}
+                lineWidth={8}
+            />,
+            <Rect
+                size={26}
+                fill={'black'}
+                position={() => line().getPointAtPercentage(progress()).position}
+                rotation={() => line().getPointAtPercentage(progress()).normal.flipped.perpendicular.degrees}
+            />,
+        </>
+    );
+
+    yield* waitFor(10)
+    yield* line().end(1, 1)
+    yield* waitFor(2)
+    yield* line().points(optimizedPath, 0.2)
+    yield* waitFor(2)
+    yield* line().radius(256, 1)
+    yield* waitFor(3)
+    yield* progress(1,3, value => value)
+}
 
 function* displayGrid(parent: Node): ThreadGenerator {
     const grid = createRef<Grid>();
@@ -47,6 +89,11 @@ function* displayGrid(parent: Node): ThreadGenerator {
         grid().end(0.0, 1),
         grid().start(1.0, 1),
     );
+    yield* waitFor(12)
+    yield* all(
+        grid().end(0.5, 1),
+        grid().start(0.5, 1),
+    );
 }
 
 function* displayHouses(parent: Node): ThreadGenerator {
@@ -59,12 +106,6 @@ function* displayHouses(parent: Node): ThreadGenerator {
     yield* all(
         ...houses.map((house) => house().scale(1, 1))
     )
-    yield* chain(
-        waitFor(10),
-        all(
-            ...houses.map((house) => house().opacity(0.0, 0))
-        )
-    )
 }
 
 function createHouse(parent: Node, house: House): Reference<Img> {
@@ -76,6 +117,7 @@ function createHouse(parent: Node, house: House): Reference<Img> {
              position={[house.x, house.y]}
              width={house.width}
              height={house.height}
+             rotation={house.rotation}
              scale={0}
              fill={'#ccc'}
         />
@@ -101,14 +143,18 @@ function* displayHouseMarker(parent: Node, house: House): ThreadGenerator {
     let group = <Node></Node>
     parent.add(group)
 
-    const startX = Math.floor((house.x - house.width / 2) / CELL_SIZE);
-    const endX = Math.ceil((house.x + house.width / 2) / CELL_SIZE);
-    const startY = Math.floor((house.y - house.height / 2) / CELL_SIZE);
-    const endY = Math.ceil((house.y + house.height / 2) / CELL_SIZE);
+    const startX = Math.floor((house.x - house.width) / CELL_SIZE);
+    const endX = Math.ceil((house.x + house.width) / CELL_SIZE);
+    const startY = Math.floor((house.y - house.height) / CELL_SIZE);
+    const endY = Math.ceil((house.y + house.height) / CELL_SIZE);
 
     for (let x = startX; x < endX; x += 1) {
         for (let y = startY; y < endY; y += 1) {
             let rect = createRef<Rect>();
+
+            if (!doesIntersect(house, x, y)) {
+                continue;
+            }
 
             parent.add(<Rect
                 ref={rect}
@@ -123,8 +169,33 @@ function* displayHouseMarker(parent: Node, house: House): ThreadGenerator {
                 rect().scale(1, 1),
                 waitFor(0.05)
             )
+
+            yield chain(
+                waitFor(10),
+                rect().scale(0, 1),
+            )
         }
     }
 
-    yield* waitFor(1)
+    yield* waitFor(12)
+}
+
+function doesIntersect(house: House, cellX: number, cellY: number): boolean {
+    const cellBox = new SAT.Box(
+        new SAT.Vector(cellX * CELL_SIZE, cellY * CELL_SIZE),
+        CELL_SIZE,
+        CELL_SIZE
+    ).toPolygon();
+
+    const houseBox = new SAT.Box(
+        new SAT.Vector(house.x - house.width / 2, house.y - house.height / 2),
+        house.width,
+        house.height
+    ).toPolygon();
+
+    houseBox.translate(-house.width / 2, -house.height / 2);
+    houseBox.rotate(house.rotation * (Math.PI / 180));
+    houseBox.translate(house.width / 2, house.height / 2);
+
+    return SAT.testPolygonPolygon(cellBox, houseBox);
 }
