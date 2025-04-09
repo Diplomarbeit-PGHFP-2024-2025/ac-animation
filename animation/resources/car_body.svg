@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="129.62675mm"
+   height="43.265739mm"
+   viewBox="0 0 129.62675 43.265739"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   sodipodi:docname="car_body.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.71974042"
+     inkscape:cx="162.55861"
+     inkscape:cy="282.04613"
+     inkscape:window-width="1512"
+     inkscape:window-height="917"
+     inkscape:window-x="0"
+     inkscape:window-y="65"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" /><defs
+     id="defs1" /><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-32.074175,-117.49021)"><path
+       fill="currentColor"
+       d="m 78.966109,118.27319 c -7.578725,-0.0201 -16.115242,0.58949 -26.050081,2.11931 -1.172634,0.16404 -12.470342,6.6085 -15.516226,11.05641 -3.045883,4.44818 -4.087812,12.91512 -4.087812,12.91512 -0.822325,3.46736 -0.322792,9.1985 -0.0934,9.75571 0.309562,1.2065 2.058458,2.21906 5.062273,2.95116 0.350308,-5.57133 4.967288,-9.91261 10.549996,-9.91949 5.845175,0 10.583333,4.73869 10.583333,10.58333 -0.0038,0.46674 -0.03842,0.93272 -0.103716,1.39489 0.156104,0.002 0.333375,0.006 0.481541,0.008 l 63.305783,0.52652 c -0.12,-0.63615 -0.18137,-1.28197 -0.18335,-1.92934 0,-5.84465 4.73869,-10.58334 10.58334,-10.58334 5.84517,0 10.58333,4.73869 10.58333,10.58334 0,0.7059 -0.0704,1.41023 -0.21061,2.10185 l 16.45338,0.13679 c 0.34872,-6.03568 1.81504,-12.37457 -1.85843,-17.653 -1.44357,-2.07434 -8.44815,-5.83089 -26.20169,-8.64131 -9.17258,-4.60635 -18.12476,-9.82923 -27.87385,-12.8222 -7.516813,-1.49092 -15.679209,-2.55799 -25.423813,-2.58365 m -4.55004,3.17077 c 1.586971,0.0116 3.042709,0.0767 4.237038,0.21431 l 1.928019,12.79314 c -10.961688,-1.34753 -22.131602,-2.55668 -28.036309,-7.27605 0.0926,-1.45521 2.106084,-3.56182 4.367213,-4.36721 1.280583,-0.45614 10.627519,-1.41447 17.504304,-1.36419 z m 9.161198,0.0921 c 6.617759,0.0699 16.412633,0.71172 23.151575,3.68829 3.22844,1.49489 9.30644,4.99374 13.37124,8.08302 l -1.68011,2.78739 c -11.0347,-0.49742 -25.740773,-1.11205 -31.776448,-1.79388 l -3.066519,-12.76495 z"
+       id="path1"
+       style="display:inline;fill:#536375;fill-opacity:1;stroke:#262e38;stroke-width:1.565;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       sodipodi:nodetypes="ccccccccccccssccscccccccsccccccccc"
+       inkscape:label="Car" /></g></svg>

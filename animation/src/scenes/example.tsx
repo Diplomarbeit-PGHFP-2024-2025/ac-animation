@@ -3,7 +3,7 @@ import {
     all,
     createRef,
     linear,
-    tween,
+    tween, Vector2,
     waitFor
 } from '@motion-canvas/core';
 import {Car, TIRE_DIAMETER} from '../custom/car'
@@ -23,11 +23,12 @@ export default makeScene2D(function* (view) {
         })
     )
 
-    yield* waitFor(0.5)
-
+    yield* waitFor(0.1)
+    car().look(Vector2.left)
+    yield* waitFor(1.5)
+    car().look(Vector2.right)
     car().flipped(true)
-
-    yield* waitFor(0.5)
+    yield* waitFor(1.5)
 
     yield* all(
         car().position([0, 0], 2),
@@ -38,6 +39,7 @@ export default makeScene2D(function* (view) {
 
     yield* waitFor(0.5)
 
+    car().look(Vector2.zero)
     yield* tween(2, value => {
         car().soc(linear(value, 0.2, 1.0));
     })

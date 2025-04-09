@@ -8,7 +8,7 @@ import {
     Reference,
     SignalValue,
     SimpleSignal,
-    spawn,
+    spawn, tween,
     Vector2
 } from "@motion-canvas/core";
 
@@ -26,6 +26,12 @@ export const BATTERIE_BAR_GAP = 8
 export const BATTERIE_BAR_WIDTH = (INTERNAL_BATTERIE_WIDTH - (BATTERIE_BAR_COUNT - 1) * BATTERIE_BAR_GAP) / BATTERIE_BAR_COUNT
 export const INTERNAL_BATTERIE_HEIGHT_FACTOR = 0.65
 
+export const AGENT_OFFSET = new Vector2(50, 30)
+export const AGENT_WIDTH = 70
+export const AGENT_EYES_OFFSET = new Vector2(50, 25)
+export const AGENT_EYES_WIDTH = 28
+export const AGENT_EYE_RADIUS = 3;
+
 export interface CarProps extends NodeProps {
     flipped?: SignalValue<boolean>
     soc?: SignalValue<number>
@@ -42,6 +48,7 @@ export class Car extends Node {
 
     private batterieColor = this.getBatterieColor()
     private tireRotation = this.getTireRotation();
+    private eyeOffset = createSignal(Vector2.zero);
 
     public constructor(props?: CarProps) {
         super({
@@ -68,6 +75,11 @@ export class Car extends Node {
                         position={[LEFT_INTERNAL_BATTERIE_OFFSET, 0]}>
                 </Layout>
             </Img>
+
+            <Img src={'resources/agent_body.svg'} position={AGENT_OFFSET} width={AGENT_WIDTH}></Img>
+            <Img src={'resources/agent_eyes.svg'}
+                 position={() => AGENT_EYES_OFFSET.add(this.eyeOffset())}
+                 width={AGENT_EYES_WIDTH}></Img>
 
 
             <Img src={'resources/tire.svg'} position={[BACK_TIRE_OFFSET.x, BACK_TIRE_OFFSET.y]} width={TIRE_DIAMETER}
@@ -108,6 +120,17 @@ export class Car extends Node {
                 spawn(bar.size(0, 0.25).do(() => bar.remove()));
             }
         })
+    }
+
+    public look(direction: Vector2) {
+        const currentDirection = this.eyeOffset()
+        spawn(tween(0.25, value => {
+            this.eyeOffset(Vector2.lerp(
+                currentDirection,
+                direction.mul(new Vector2(AGENT_EYE_RADIUS)),
+                easeInOutQuad(value)
+            ))
+        }))
     }
 
     private carFlipScaleX(): SimpleSignal<number> {
