@@ -9,15 +9,15 @@ import {
 import {Car, TIRE_DIAMETER} from '../custom/car'
 
 export default makeScene2D(function* (view) {
-
     const car = createRef<Car>();
+    const tireLength = TIRE_DIAMETER * Math.PI;
 
     view.add(<>
         <Car ref={car}></Car>
     </>);
 
     yield* all(
-        car().position([TIRE_DIAMETER * Math.PI, 0], 2),
+        car().position([tireLength, 0], 2),
         tween(2, value => {
             car().soc(linear(value, 1, 0.6));
         })
@@ -35,4 +35,10 @@ export default makeScene2D(function* (view) {
             car().soc(linear(value, 0.6, 0.2));
         })
     )
+
+    yield* waitFor(0.5)
+
+    yield* tween(2, value => {
+        car().soc(linear(value, 0.2, 1.0));
+    })
 });
