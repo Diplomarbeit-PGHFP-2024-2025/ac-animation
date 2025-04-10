@@ -69,7 +69,7 @@ function* displayPath(parent: Node): ThreadGenerator {
             />,
             <Img
                 src={"resources/car_top_down.svg"}
-                size={100}
+                size={128}
                 position={() => optimizedLine().getPointAtPercentage(progress()).position}
                 rotation={() => optimizedLine().getPointAtPercentage(progress()).tangent.degrees}
             />,
