@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="29.091143mm"
+   height="12.03092mm"
+   viewBox="0 0 29.091143 12.03092"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   sodipodi:docname="batterie.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="2.0559962"
+     inkscape:cx="32.587609"
+     inkscape:cy="12.159556"
+     inkscape:window-width="1512"
+     inkscape:window-height="945"
+     inkscape:window-x="0"
+     inkscape:window-y="37"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" /><defs
+     id="defs1" /><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-85.696878,-142.65442)"><path
+       fill="currentColor"
+       d="m 85.696878,145.87697 c 1.4e-5,-1.77977 1.442807,-3.22255 3.222577,-3.22255 h 20.927285 c 1.77976,0 3.22257,1.44278 3.22257,3.22255 v 1.07419 h 0.85936 c 0.47461,0 0.85936,0.38476 0.85935,0.85938 v 1.71868 c 1e-5,0.47462 -0.38474,0.85938 -0.85935,0.85938 h -0.85936 v 1.07419 c 0,1.77977 -1.44281,3.22255 -3.22257,3.22255 H 88.919455 c -1.779833,0 -3.222652,-1.44288 -3.222577,-3.22271 z m 3.222577,-1.93354 c -1.067866,0 -1.933544,0.86567 -1.933547,1.93354 v 5.58582 c 3e-6,1.06787 0.865681,1.93354 1.933547,1.93354 h 20.927285 c 1.06786,0 1.93354,-0.86568 1.93354,-1.93354 v -5.58582 c 0,-1.06786 -0.86568,-1.93354 -1.93354,-1.93354 z"
+       id="path1-6"
+       style="display:inline;fill:#262e38;fill-opacity:1;stroke-width:0.359;stroke-dasharray:none"
+       sodipodi:nodetypes="cssscsccscsssccsssscsscs"
+       inkscape:label="Battery" /></g></svg>
