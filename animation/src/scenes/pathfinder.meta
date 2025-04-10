@@ -3,7 +3,7 @@
   "timeEvents": [
     {
       "name": "gridAppear",
-      "targetTime": 1.9711120312191035
+      "targetTime": 2.3826266074152938
     },
     {
       "name": "gridCells",
@@ -15,7 +15,7 @@
     },
     {
       "name": "gridDisappear",
-      "targetTime": 13.902684830099984
+      "targetTime": 14.314199406296174
     },
     {
       "name": "optimizedPath",

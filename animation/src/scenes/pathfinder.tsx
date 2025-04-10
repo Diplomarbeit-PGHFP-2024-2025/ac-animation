@@ -67,11 +67,11 @@ function* displayPath(parent: Node): ThreadGenerator {
                 stroke={'lightseagreen'}
                 lineWidth={8}
             />,
-            <Rect
-                size={26}
-                fill={'black'}
+            <Img
+                src={"resources/car_top_down.svg"}
+                size={100}
                 position={() => optimizedLine().getPointAtPercentage(progress()).position}
-                rotation={() => optimizedLine().getPointAtPercentage(progress()).normal.flipped.perpendicular.degrees}
+                rotation={() => optimizedLine().getPointAtPercentage(progress()).tangent.degrees}
             />,
         </>
     );
@@ -86,7 +86,10 @@ function* displayPath(parent: Node): ThreadGenerator {
     yield* waitUntil('smoothPath')
     yield* optimizedLine().radius(256, 1)
     yield* waitUntil('carFollowPath')
-    yield* progress(1, 3, value => value)
+    yield* all(
+        progress(1, 3, value => value),
+        optimizedLine().opacity(0, 1)
+    )
 }
 
 function* displayGrid(parent: Node): ThreadGenerator {
