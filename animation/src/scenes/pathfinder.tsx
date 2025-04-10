@@ -1,5 +1,16 @@
 import {Circle, Img, Node, makeScene2D, Grid, View2D, Rect, Line} from '@motion-canvas/2d';
-import {all, any, chain, createRef, createSignal, Reference, ThreadGenerator, waitFor} from "@motion-canvas/core";
+import {
+    all,
+    any,
+    chain,
+    createRef,
+    createSignal,
+    Reference,
+    spawn,
+    ThreadGenerator,
+    waitFor, waitUntil,
+    useDuration
+} from "@motion-canvas/core";
 import SAT, {Vector} from 'sat';
 
 type House = {
@@ -32,7 +43,8 @@ export default makeScene2D(function* (view) {
 })
 
 function* displayPath(parent: Node): ThreadGenerator {
-    const line = createRef<Line>();
+    const basicLine = createRef<Line>();
+    const optimizedLine = createRef<Line>();
 
     const progress = createSignal(0);
 
@@ -42,8 +54,15 @@ function* displayPath(parent: Node): ThreadGenerator {
     parent.add(
         <>
             <Line
-                ref={line}
+                ref={basicLine}
                 points={basePath}
+                end={0}
+                stroke={'lightseagreen'}
+                lineWidth={8}
+            />,
+            <Line
+                ref={optimizedLine}
+                points={optimizedPath}
                 end={0}
                 stroke={'lightseagreen'}
                 lineWidth={8}
@@ -51,20 +70,23 @@ function* displayPath(parent: Node): ThreadGenerator {
             <Rect
                 size={26}
                 fill={'black'}
-                position={() => line().getPointAtPercentage(progress()).position}
-                rotation={() => line().getPointAtPercentage(progress()).normal.flipped.perpendicular.degrees}
+                position={() => optimizedLine().getPointAtPercentage(progress()).position}
+                rotation={() => optimizedLine().getPointAtPercentage(progress()).normal.flipped.perpendicular.degrees}
             />,
         </>
     );
 
-    yield* waitFor(10)
-    yield* line().end(1, 1)
-    yield* waitFor(2)
-    yield* line().points(optimizedPath, 0.2)
-    yield* waitFor(2)
-    yield* line().radius(256, 1)
-    yield* waitFor(3)
-    yield* progress(1,3, value => value)
+    yield* waitUntil('basicPath');
+    yield* basicLine().end(1, 1);
+    yield* waitUntil('optimizedPath')
+    yield* all(
+        basicLine().start(1, 3),
+        optimizedLine().end(1, 3)
+    );
+    yield* waitUntil('smoothPath')
+    yield* optimizedLine().radius(256, 1)
+    yield* waitUntil('carFollowPath')
+    yield* progress(1, 3, value => value)
 }
 
 function* displayGrid(parent: Node): ThreadGenerator {
@@ -84,12 +106,12 @@ function* displayGrid(parent: Node): ThreadGenerator {
         />
     </>);
 
-    yield* waitFor(3)
+    yield* waitUntil('gridAppear');
     yield* all(
         grid().end(0.0, 1),
         grid().start(1.0, 1),
     );
-    yield* waitFor(12)
+    yield* waitUntil('gridDisappear');
     yield* all(
         grid().end(0.5, 1),
         grid().start(0.5, 1),
@@ -130,13 +152,11 @@ function* displayGridMarker(parent: Node): ThreadGenerator {
     let group = <Node></Node>
     parent.add(group)
 
-    yield* waitFor(5)
+    yield* waitUntil("gridCells")
 
     yield* all(
         ...HOUSES.map(value => displayHouseMarker(group, value))
     )
-
-    yield* waitFor(1)
 }
 
 function* displayHouseMarker(parent: Node, house: House): ThreadGenerator {
@@ -165,19 +185,16 @@ function* displayHouseMarker(parent: Node, house: House): ThreadGenerator {
                 fill={'#555'}
             />);
 
-            yield* any(
-                rect().scale(1, 1),
-                waitFor(0.05)
-            )
+            spawn(rect().scale(1, 1))
 
-            yield chain(
+            yield* waitFor(0.05)
+
+            spawn(chain(
                 waitFor(10),
                 rect().scale(0, 1),
-            )
+            ))
         }
     }
-
-    yield* waitFor(12)
 }
 
 function doesIntersect(house: House, cellX: number, cellY: number): boolean {

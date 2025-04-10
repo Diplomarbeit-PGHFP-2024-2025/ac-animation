@@ -1,5 +1,34 @@
 {
   "version": 0,
-  "timeEvents": [],
+  "timeEvents": [
+    {
+      "name": "gridAppear",
+      "targetTime": 1.9711120312191035
+    },
+    {
+      "name": "gridCells",
+      "targetTime": 4.736041771437751
+    },
+    {
+      "name": "basicPath",
+      "targetTime": 7.964602030407596
+    },
+    {
+      "name": "gridDisappear",
+      "targetTime": 13.902684830099984
+    },
+    {
+      "name": "optimizedPath",
+      "targetTime": 11.496396053318621
+    },
+    {
+      "name": "smoothPath",
+      "targetTime": 14.552425802750449
+    },
+    {
+      "name": "carFollowPath",
+      "targetTime": 18.54040512575463
+    }
+  ],
   "seed": 3822982900
 }
