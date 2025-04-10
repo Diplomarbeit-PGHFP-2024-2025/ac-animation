@@ -1,8 +1,9 @@
 import {makeProject} from '@motion-canvas/core';
 
-import example from './scenes/example?scene';
+import car from './scenes/car?scene';
 import pathfinder from "./scenes/pathfinder?scene";
+import communication from "./scenes/communication?scene";
 
 export default makeProject({
-  scenes: [example, pathfinder],
+    scenes: [car, communication, pathfinder],
 });
