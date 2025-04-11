@@ -1,17 +1,13 @@
 import {makeScene2D, Img, Layout, Node, Line, Rect, View2D, Txt} from '@motion-canvas/2d';
 import {
     all,
-    chain,
     createRef, createSignal,
     Reference, SimpleSignal,
-    spawn,
-    ThreadGenerator,
-    useLogger,
+    ThreadGenerator, useLogger,
     Vector2,
     waitFor
 } from "@motion-canvas/core";
 import {Message} from "../custom/message"
-import {MESSAGE_START_POSITION} from "./car";
 
 interface Agent {
     img: Reference<Img>
@@ -68,7 +64,6 @@ class CommunicationAnimation {
     private readonly layout = createRef<Layout>();
     private readonly message = createRef<Node>();
     private agents: Agent[] = []
-    private readonly messageText = createSignal<string>("abc")
     private lines: Reference<Line>[] = []
 
     constructor() {
@@ -96,7 +91,6 @@ class CommunicationAnimation {
         )
 
         yield* this.animateMessage(this.REGISTRY_MESSAGE_PATH)
-
         yield* this.animateMessage(this.STATION_MESSAGE_PATH)
 
         yield* waitFor(0.5)
@@ -117,7 +111,7 @@ class CommunicationAnimation {
         this.layout().add(
             <Layout height={1000} gap={20} alignItems={'center'} justifyContent={'center'} direction={'column'} layout>
                 <Img ref={agent.img} src={src} size={100} scale={0}/>
-                <Rect ref={agent.rect} width={10} height={0} radius={20} fill="#000"/>
+                <Rect ref={agent.rect} width={10} height={0} radius={20} fill={"#000"}/>
             </Layout>
         )
 
@@ -136,7 +130,7 @@ class CommunicationAnimation {
                 }
             }
 
-            position = position.add(new Vector2(0,-35))
+            position = position.add(new Vector2(0, -35))
 
             useLogger().info("" + position)
             this.scene.add(
@@ -169,7 +163,6 @@ class CommunicationAnimation {
     ):
         ThreadGenerator {
         for (let i = 0; i < path.length; i++) {
-            this.messageText(path[i].message)
             this.message().position(path[i].a)
             yield* this.message().scale(1, 0.5)
 
@@ -187,16 +180,16 @@ class CommunicationAnimation {
         }
     }
 
-    *disappearLines(): ThreadGenerator {
+    * disappearLines(): ThreadGenerator {
         const actions = this.lines.map(line => line().end(0, 1))
 
         yield* all(...actions)
     }
 
-    *disappearText(): ThreadGenerator {
+    * disappearText(): ThreadGenerator {
         const actions = []
         for (let path of [...this.REGISTRY_MESSAGE_PATH, ...this.STATION_MESSAGE_PATH]) {
-            actions.push(path.scale(0,1))
+            actions.push(path.scale(0, 1))
         }
 
         yield* all(...actions)
