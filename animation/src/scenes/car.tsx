@@ -50,7 +50,7 @@ export default makeScene2D(function* (view) {
     view.add(<Camera ref={camera}>
         <Txt ref={autoCharge} position={() => [autoChargeX(), AUTOCHARGE_Y + 50]} fontSize={200}
              fontFamily={'helvetica'}>AutoCharge</Txt>
-        <Img ref={bosch} position={() => [boschX(), BOSCH_Y]} height={400}
+        <Img ref={bosch} position={() => [boschX(), BOSCH_Y]} height={400} width={1000}
              src={'resources/bosch.svg'}/>
 
         <Car ref={car} position={[-1400, AUTOCHARGE_Y + 50]}/>
