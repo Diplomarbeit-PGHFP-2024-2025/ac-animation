@@ -15,6 +15,8 @@ export const AUTOCHARGE_Y = -150
 export const BOSCH_Y = 150
 
 export default makeScene2D(function* (view) {
+    const background = createRef<Img>();
+
     const car = createRef<Car>();
     const camera = createRef<Camera>();
 
@@ -48,6 +50,7 @@ export default makeScene2D(function* (view) {
     )
 
     view.add(<Camera ref={camera}>
+        <Img ref={background} src={"resources/background.svg"} height={1920} width={1920}/>
         <Txt ref={autoCharge} position={() => [autoChargeX(), AUTOCHARGE_Y + 50]} fontSize={200}
              fontFamily={'helvetica'}>AutoCharge</Txt>
         <Img ref={bosch} position={() => [boschX(), BOSCH_Y]} height={400} width={1000}
@@ -85,6 +88,7 @@ export default makeScene2D(function* (view) {
     car().position([-1400, 0])
 
     camera().scale(0.5)
+    background().scale(0.5)
 
     yield* waitUntil("carCenter")
 
