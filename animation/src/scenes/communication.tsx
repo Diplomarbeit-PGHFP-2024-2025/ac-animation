@@ -29,15 +29,15 @@ interface MessagePath {
 class CommunicationAnimation {
     private REGISTRY_MESSAGE_PATH: MessagePath[] = [
         {
-            a: new Vector2(-350, -150),
-            b: new Vector2(-100, -150),
+            a: new Vector2(-50, -150),
+            b: new Vector2(-400, -150),
             message: "Nahe Stationen?",
             scale: createSignal(0),
             left: true
         },
         {
-            a: new Vector2(-100, -50),
-            b: new Vector2(-350, -50),
+            a: new Vector2(-400, -50),
+            b: new Vector2(-50, -50),
             message: "Stationen",
             scale: createSignal(0),
             left: false
@@ -46,21 +46,21 @@ class CommunicationAnimation {
 
     private STATION_MESSAGE_PATH: MessagePath[] = [
         {
-            a: new Vector2(-350, 50),
-            b: new Vector2(350, 50),
+            a: new Vector2(50, 50),
+            b: new Vector2(400, 50),
             message: "Deine Parameter?",
             scale: createSignal(0),
             left: false
         },
-        {a: new Vector2(350, 150), b: new Vector2(-350, 150), message: "Parameter", scale: createSignal(0), left: true},
+        {a: new Vector2(400, 150), b: new Vector2(50, 150), message: "Parameter", scale: createSignal(0), left: true},
         {
-            a: new Vector2(-350, 250),
-            b: new Vector2(350, 250),
+            a: new Vector2(50, 250),
+            b: new Vector2(400, 250),
             message: "Reservieren?",
             scale: createSignal(0),
             left: false
         },
-        {a: new Vector2(350, 350), b: new Vector2(-350, 350), message: "Ok", scale: createSignal(0), left: true},
+        {a: new Vector2(400, 350), b: new Vector2(50, 350), message: "Ok", scale: createSignal(0), left: true},
     ]
 
     private readonly scene: Node;
@@ -79,8 +79,8 @@ class CommunicationAnimation {
             </Node>
         </Node>
 
-        this.addAgent("resources/agent.svg")
         this.addAgent("resources/registry_body.svg")
+        this.addAgent("resources/agent.svg")
         this.addAgent("resources/station_body.svg")
 
         this.addText()
@@ -126,16 +126,17 @@ class CommunicationAnimation {
 
     addText() {
         for (let path of [...this.REGISTRY_MESSAGE_PATH, ...this.STATION_MESSAGE_PATH]) {
-            const position = path.b.add(path.a).div(new Vector2(2, 2)).add(new Vector2(0, -35));
+            let position = path.b.add(path.a).div(new Vector2(2, 2));
 
             if (position.x === 0) {
                 if (!path.left) {
-                    position.x = -150;
+                    position = path.a.add(position).div(new Vector2(2, 2));
                 } else {
-                    position.x = 150;
-
+                    position = path.b.add(position).div(new Vector2(2, 2));
                 }
             }
+
+            position = position.add(new Vector2(0,-35))
 
             useLogger().info("" + position)
             this.scene.add(
