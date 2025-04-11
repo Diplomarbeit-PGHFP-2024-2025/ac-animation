@@ -29,8 +29,8 @@ const HOUSES: House[] = [
     {x: -300, y: 200, width: 300, height: 300, rotation: 45},
 ]
 
-const BASE_PATH: [number, number][] = [[-13, -4], [-10, -4], [-10, -3], [-9, -3], [-9, -2], [-8, -2], [-3, -2], [-3, -1], [-2, -1], [-2, 0], [-1, 0], [-1, 1], [1, 1], [1, 2], [12, 2]]
-const OPTIMIZED_PATH: [number, number][] = [[-13, -4], [-10, -4], [-3, -2], [1, 2], [12, 2]]
+const BASE_PATH: [number, number][] = [[-11.5, -4], [-10, -4], [-10, -3], [-9, -3], [-9, -2], [-8, -2], [-3, -2], [-3, -1], [-2, -1], [-2, 0], [-1, 0], [-1, 1], [1, 1], [1, 2], [12, 2]]
+const OPTIMIZED_PATH: [number, number][] = [[-11.5, -4], [-10, -4], [-3, -2], [1, 2], [13, 2]]
 
 
 export default makeScene2D(function* (view) {

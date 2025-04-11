@@ -1,1 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="#536275"><path d="M22 7.535V17a3 3 0 0 1-2.824 2.995L19 20H5a3 3 0 0 1-2.995-2.824L2 17V7.535l9.445 6.297l.116.066a1 1 0 0 0 .878 0l.116-.066z"/><path d="M19 4c1.08 0 2.027.57 2.555 1.427L12 11.797l-9.555-6.37a3 3 0 0 1 2.354-1.42L5 4z"/></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        version="1.1"
+        id="svg2"
+        sodipodi:docname="message_open.svg"
+        inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+        xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg">
+    <defs
+            id="defs2" />
+    <sodipodi:namedview
+            id="namedview2"
+            pagecolor="#ffffff"
+            bordercolor="#000000"
+            borderopacity="0.25"
+            inkscape:showpageshadow="2"
+            inkscape:pageopacity="0.0"
+            inkscape:pagecheckerboard="0"
+            inkscape:deskcolor="#d1d1d1"
+            inkscape:zoom="21.25783"
+            inkscape:cx="6.1624353"
+            inkscape:cy="13.383304"
+            inkscape:window-width="1920"
+            inkscape:window-height="1014"
+            inkscape:window-x="0"
+            inkscape:window-y="0"
+            inkscape:window-maximized="1"
+            inkscape:current-layer="g2" />
+    <g
+            fill="#536275"
+            id="g2">
+        <rect
+                style="fill:#ffffff;stroke:#262e38;stroke-width:0;fill-opacity:1"
+                id="rect2"
+                width="22.015417"
+                height="21.403879"
+                x="0.98787129"
+                y="1.8816596" />
+        <path
+                d="M22 7.535V17a3 3 0 0 1-2.824 2.995L19 20H5a3 3 0 0 1-2.995-2.824L2 17V7.535l9.445 6.297l.116.066a1 1 0 0 0 .878 0l.116-.066z"
+                id="path1" />
+        <path
+                d="M19 4c1.08 0 2.027.57 2.555 1.427L12 11.797l-9.555-6.37a3 3 0 0 1 2.354-1.42L5 4z"
+                id="path2" />
+    </g>
+</svg>
