@@ -1,5 +1,18 @@
 {
   "version": 0,
-  "timeEvents": [],
+  "timeEvents": [
+    {
+      "name": "Logo",
+      "targetTime": 0.7756790789710382
+    },
+    {
+      "name": "bosch",
+      "targetTime": 3.7175751034358697
+    },
+    {
+      "name": "carCenter",
+      "targetTime": 7.490555855369671
+    }
+  ],
   "seed": 838630212
 }

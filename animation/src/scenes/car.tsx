@@ -4,7 +4,7 @@ import {
     createRef, createSignal,
     linear,
     tween, useLogger, Vector2,
-    waitFor,
+    waitFor, waitUntil,
 
 } from '@motion-canvas/core';
 import {AGENT_EYE_RADIUS, AGENT_EYES_OFFSET, Car, TIRE_DIAMETER} from '../custom/car'
@@ -57,6 +57,8 @@ export default makeScene2D(function* (view) {
         <Message ref={message} width={75} position={MESSAGE_START_POSITION} scale={0}/>
     </Camera>);
 
+    yield* waitUntil("Logo")
+
     yield* all(
         car().position([1400, AUTOCHARGE_Y + 50], 2),
         tween(2, value => {
@@ -65,7 +67,7 @@ export default makeScene2D(function* (view) {
     )
     hideAutoCharge(true);
 
-    yield* waitFor(0.1)
+    yield* waitUntil("bosch")
 
     car().flipped(true)
     car().position([1400, BOSCH_Y - 50])
@@ -81,6 +83,10 @@ export default makeScene2D(function* (view) {
 
     car().flipped(false)
     car().position([-1400, 0])
+
+    camera().scale(0.5)
+
+    yield* waitUntil("carCenter")
 
     yield* all(
         car().position([0, 0], 2),
