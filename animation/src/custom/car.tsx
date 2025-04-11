@@ -30,7 +30,7 @@ export const AGENT_OFFSET = new Vector2(50, 30)
 export const AGENT_WIDTH = 70
 export const AGENT_EYES_OFFSET = new Vector2(50, 25)
 export const AGENT_EYES_WIDTH = 28
-export const AGENT_EYE_RADIUS = 3;
+export const AGENT_EYE_RADIUS = 4;
 
 export interface CarProps extends NodeProps {
     flipped?: SignalValue<boolean>
@@ -48,7 +48,7 @@ export class Car extends Node {
 
     private batterieColor = this.getBatterieColor()
     private tireRotation = this.getTireRotation();
-    private eyeOffset = createSignal(Vector2.zero);
+    public eyeOffset = createSignal(Vector2.zero);
 
     public constructor(props?: CarProps) {
         super({
@@ -61,7 +61,7 @@ export class Car extends Node {
         const batterie = createRef<Img>()
         const barContainer = createRef<Layout>();
 
-        this.add(<Node ref={carParent} position={this.position} scaleX={scale}>
+        this.add(<Node ref={carParent} scaleX={scale}>
             <Img src={'resources/car_body.svg'}></Img>
 
 
