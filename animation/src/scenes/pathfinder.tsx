@@ -51,8 +51,8 @@ export default makeScene2D(function* (view) {
     yield* waitFor(1)
 
     yield* all(
-        camera().scale(3, 1),
-        camera().position([2730, 900], 1)
+        camera().scale(4.6, 1),
+        camera().position([4050, 1310], 1)
     )
 
     spawn(car().opacity(1, 2).do(() => car().remove()))
