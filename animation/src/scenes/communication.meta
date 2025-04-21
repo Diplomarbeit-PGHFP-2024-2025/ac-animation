@@ -2,8 +2,32 @@
   "version": 0,
   "timeEvents": [
     {
+      "name": "Welche Stationen sind in meiner Nähe?",
+      "targetTime": 1.6063050038317377
+    },
+    {
+      "name": "Stationen in deiner Nähe",
+      "targetTime": 4.26147746457206
+    },
+    {
+      "name": "Was sind deine Parameter?",
+      "targetTime": 6.36147746457206
+    },
+    {
+      "name": "Das sind meine Parameter",
+      "targetTime": 8.46147746457206
+    },
+    {
+      "name": "Ich möchte reservieren",
+      "targetTime": 10.561477464572059
+    },
+    {
+      "name": "Reservierung erfolgreich",
+      "targetTime": 12.661477464572059
+    },
+    {
       "name": "disappear",
-      "targetTime": 14.770398150378035
+      "targetTime": 21.160088024812538
     }
   ],
   "seed": 3250015014

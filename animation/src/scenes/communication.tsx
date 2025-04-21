@@ -161,6 +161,7 @@ class CommunicationAnimation {
     ):
         ThreadGenerator {
         for (let i = 0; i < path.length; i++) {
+            yield* waitUntil(path[i].message)
             this.message().position(path[i].a)
             yield* this.message().scale(1, 0.5)
 
