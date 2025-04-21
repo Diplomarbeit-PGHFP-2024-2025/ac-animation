@@ -63,8 +63,8 @@ export default makeScene2D(function* (view) {
     yield* waitUntil("Logo")
 
     yield* all(
-        car().position([1400, AUTOCHARGE_Y + 50], 2),
-        tween(2, value => {
+        car().position([1400, AUTOCHARGE_Y + 50], 1.5),
+        tween(1.5, value => {
             car().soc(linear(value, 1, 0.7));
         })
     )
@@ -76,8 +76,8 @@ export default makeScene2D(function* (view) {
     car().position([1400, BOSCH_Y - 50])
 
     yield* all(
-        car().position([-1400, BOSCH_Y - 50], 2),
-        tween(2, value => {
+        car().position([-1400, BOSCH_Y - 50], 1.5),
+        tween(1.5, value => {
             car().soc(linear(value, 0.7, 0.4));
         })
     )
@@ -93,8 +93,8 @@ export default makeScene2D(function* (view) {
     yield* waitUntil("carCenter")
 
     yield* all(
-        car().position([0, 0], 2),
-        tween(2, value => {
+        car().position([0, 0], 1),
+        tween(1, value => {
             car().soc(linear(value, 0.4, 0.2));
         })
     )
@@ -118,10 +118,10 @@ export default makeScene2D(function* (view) {
     yield* message().scale(1, 1)
 
     yield* all(
-        message().position.y(message().position().y - 2000, 2),
+        message().position.y(message().position().y - 2000, 1.5),
         chain(
             waitFor(0.1),
-            camera().position.y(car().position().y - 4000, 2),
+            camera().position.y(car().position().y - 4000, 1.5),
         )
     )
 });

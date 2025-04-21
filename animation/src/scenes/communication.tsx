@@ -5,7 +5,7 @@ import {
     Reference, SimpleSignal,
     ThreadGenerator, useLogger,
     Vector2,
-    waitFor
+    waitFor, waitUntil
 } from "@motion-canvas/core";
 import {Message} from "../custom/message"
 
@@ -27,14 +27,14 @@ class CommunicationAnimation {
         {
             a: new Vector2(-50, -150),
             b: new Vector2(-400, -150),
-            message: "Nahe Stationen?",
+            message: "Was sind mir nahe Stationen?",
             scale: createSignal(0),
             left: true
         },
         {
             a: new Vector2(-400, -50),
             b: new Vector2(-50, -50),
-            message: "Stationen",
+            message: "Stationen in deiner Nähe",
             scale: createSignal(0),
             left: false
         },
@@ -44,19 +44,19 @@ class CommunicationAnimation {
         {
             a: new Vector2(50, 50),
             b: new Vector2(400, 50),
-            message: "Deine Parameter?",
+            message: "Was sind deine Parameter?",
             scale: createSignal(0),
             left: false
         },
-        {a: new Vector2(400, 150), b: new Vector2(50, 150), message: "Parameter", scale: createSignal(0), left: true},
+        {a: new Vector2(400, 150), b: new Vector2(50, 150), message: "Meine Parameter", scale: createSignal(0), left: true},
         {
             a: new Vector2(50, 250),
             b: new Vector2(400, 250),
-            message: "Reservieren?",
+            message: "Kann ich reservieren?",
             scale: createSignal(0),
             left: false
         },
-        {a: new Vector2(400, 350), b: new Vector2(50, 350), message: "Ok", scale: createSignal(0), left: true},
+        {a: new Vector2(400, 350), b: new Vector2(50, 350), message: "Wurde reserviert", scale: createSignal(0), left: true},
     ]
 
     private readonly scene: Node;
@@ -93,7 +93,7 @@ class CommunicationAnimation {
         yield* this.animateMessage(this.REGISTRY_MESSAGE_PATH)
         yield* this.animateMessage(this.STATION_MESSAGE_PATH)
 
-        yield* waitFor(0.5)
+        yield* waitUntil("disappear")
         yield* all(
             this.disappearAgent(this.agents[0]),
             this.disappearAgent(this.agents[1]),
@@ -101,8 +101,6 @@ class CommunicationAnimation {
             this.disappearLines(),
             this.disappearText()
         )
-
-        yield* waitFor(10)
     }
 
     addAgent(src: string) {
