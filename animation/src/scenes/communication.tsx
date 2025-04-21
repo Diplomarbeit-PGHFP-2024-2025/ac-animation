@@ -48,11 +48,11 @@ class CommunicationAnimation {
             scale: createSignal(0),
             left: false
         },
-        {a: new Vector2(400, 150), b: new Vector2(50, 150), message: "Meine Parameter", scale: createSignal(0), left: true},
+        {a: new Vector2(400, 150), b: new Vector2(50, 150), message: "Das sind meine Parameter", scale: createSignal(0), left: true},
         {
             a: new Vector2(50, 250),
             b: new Vector2(400, 250),
-            message: "Kann ich reservieren?",
+            message: "Ich möchte reservieren",
             scale: createSignal(0),
             left: false
         },

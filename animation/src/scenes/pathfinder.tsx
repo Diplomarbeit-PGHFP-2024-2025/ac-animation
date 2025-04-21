@@ -48,18 +48,24 @@ export default makeScene2D(function* (view) {
         camera().position([0, 0], 2)
     )
 
+    yield* waitFor(1)
+
     yield* all(
         camera().scale(3, 1),
         camera().position([2730, 900], 1)
     )
 
-    spawn(car().opacity(1,2).do(() => car().remove()))
+    spawn(car().opacity(1, 2).do(() => car().remove()))
 
     yield* all(
         displayHouses(view),
         displayGrid(view),
         displayGridMarker(view),
-        displayPath(view)
+        displayPath(view),
+        chain(
+            waitUntil("cameraMove"),
+            view.position([-2000, 1080/2], 1)
+        )
     )
 })
 
@@ -100,7 +106,7 @@ function* displayPath(parent: Node): ThreadGenerator {
         </>
     );
 
-    spawn(car().opacity(1,1))
+    spawn(car().opacity(1, 1))
 
     yield* waitUntil('basicPath');
     yield* basicLine().end(1, 1);

@@ -106,6 +106,7 @@ export default makeScene2D(function* (view) {
     let agentPosition = car().position().add(AGENT_EYES_OFFSET);
     let direction = messagePosition.sub(agentPosition).normalized;
     car().look(direction);
+    yield* waitFor(0.25)
     createDeferredEffect(() => {
         let messagePosition = message().position();
         let agentPosition = car().position().add(AGENT_EYES_OFFSET);

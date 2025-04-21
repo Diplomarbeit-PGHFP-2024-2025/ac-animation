@@ -3,7 +3,7 @@
   "timeEvents": [
     {
       "name": "gridAppear",
-      "targetTime": 2.3826266074152938
+      "targetTime": 4
     },
     {
       "name": "gridCells",
@@ -12,6 +12,10 @@
     {
       "name": "basicPath",
       "targetTime": 7.964602030407596
+    },
+    {
+      "name": "cameraMove",
+      "targetTime": 19.38458783814848
     },
     {
       "name": "gridDisappear",
@@ -27,7 +31,7 @@
     },
     {
       "name": "carFollowPath",
-      "targetTime": 18.54040512575463
+      "targetTime": 17.65200208829764
     }
   ],
   "seed": 3822982900

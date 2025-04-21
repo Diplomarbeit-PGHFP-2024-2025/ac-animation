@@ -47,18 +47,18 @@ export default makeScene2D(function* (view) {
     yield* waitFor(0.5)
     car().look(Vector2.right)
     car().flipped(true)
-    yield* waitFor(1)
+    yield* waitUntil("driveAway")
 
     yield* all(
-        car().position([3000, 0], 1.5),
+        car().position([3000, 0], 1.1),
         camera().position([2000, 0], 1),
     )
 
     camera().position([2000, 0])
     camera().scale(0.5)
-    car().position([0,0])
+    car().position([3800,0])
     car().eyeOffset(new Vector2(0, 0))
-    yield* camera().position([30,0], 2)
+    yield* camera().position([3800-30,0], 2)
     yield* waitFor(2.0)
 
 });
