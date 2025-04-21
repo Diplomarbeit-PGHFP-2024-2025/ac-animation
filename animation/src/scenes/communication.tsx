@@ -26,13 +26,13 @@ class CommunicationAnimation {
     private REGISTRY_MESSAGE_PATH: MessagePath[] = [
         {
             a: new Vector2(-50, -150),
-            b: new Vector2(-400, -150),
-            message: "Was sind mir nahe Stationen?",
+            b: new Vector2(-500, -150),
+            message: "Welche Stationen sind in meiner Nähe?",
             scale: createSignal(0),
             left: true
         },
         {
-            a: new Vector2(-400, -50),
+            a: new Vector2(-500, -50),
             b: new Vector2(-50, -50),
             message: "Stationen in deiner Nähe",
             scale: createSignal(0),
@@ -43,20 +43,20 @@ class CommunicationAnimation {
     private STATION_MESSAGE_PATH: MessagePath[] = [
         {
             a: new Vector2(50, 50),
-            b: new Vector2(400, 50),
+            b: new Vector2(500, 50),
             message: "Was sind deine Parameter?",
             scale: createSignal(0),
             left: false
         },
-        {a: new Vector2(400, 150), b: new Vector2(50, 150), message: "Das sind meine Parameter", scale: createSignal(0), left: true},
+        {a: new Vector2(500, 150), b: new Vector2(50, 150), message: "Das sind meine Parameter", scale: createSignal(0), left: true},
         {
             a: new Vector2(50, 250),
-            b: new Vector2(400, 250),
+            b: new Vector2(500, 250),
             message: "Ich möchte reservieren",
             scale: createSignal(0),
             left: false
         },
-        {a: new Vector2(400, 350), b: new Vector2(50, 350), message: "Wurde reserviert", scale: createSignal(0), left: true},
+        {a: new Vector2(500, 350), b: new Vector2(50, 350), message: "Reservierung erfolgreich", scale: createSignal(0), left: true},
     ]
 
     private readonly scene: Node;
@@ -68,7 +68,7 @@ class CommunicationAnimation {
 
     constructor() {
         this.scene = <Node>
-            <Layout ref={this.layout} width={1000} justifyContent={'space-between'} layout></Layout>
+            <Layout ref={this.layout} width={1200} justifyContent={'space-between'} layout></Layout>
             <Node ref={this.message} scale={0} position={[500, 500]} zIndex={2}>
                 <Message width={60}/>
             </Node>

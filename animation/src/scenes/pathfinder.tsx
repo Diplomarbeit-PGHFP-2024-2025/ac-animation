@@ -35,28 +35,6 @@ const OPTIMIZED_PATH: [number, number][] = [[-11.5, -4], [-10, -4], [-3, -2], [1
 
 
 export default makeScene2D(function* (view) {
-    const car = createRef<Car>();
-    const camera = createRef<Camera>();
-
-    view.add(<Camera ref={camera} position={[0, -4000]}>
-        <Car ref={car} position={[0, 0]}/>
-    </Camera>);
-    camera().scale(5)
-
-    yield* all(
-        camera().scale(1, 2),
-        camera().position([0, 0], 2)
-    )
-
-    yield* waitFor(1)
-
-    yield* all(
-        camera().scale(4.6, 1),
-        camera().position([4050, 1310], 1)
-    )
-
-    spawn(car().opacity(1, 2).do(() => car().remove()))
-
     yield* all(
         displayHouses(view),
         displayGrid(view),
@@ -85,19 +63,19 @@ function* displayPath(parent: Node): ThreadGenerator {
                 ref={basicLine}
                 points={basePath}
                 end={0}
-                stroke={'lightseagreen'}
+                stroke={'#9f88fd'}
                 lineWidth={8}
             />,
             <Line
                 ref={optimizedLine}
                 points={optimizedPath}
                 end={0}
-                stroke={'lightseagreen'}
+                stroke={'#9f88fd'}
                 lineWidth={8}
             />,
             <Img
                 ref={car}
-                opacity={0}
+                scale={0}
                 src={"resources/car_top_down.svg"}
                 size={128}
                 position={() => optimizedLine().getPointAtPercentage(progress()).position}
@@ -106,7 +84,7 @@ function* displayPath(parent: Node): ThreadGenerator {
         </>
     );
 
-    spawn(car().opacity(1, 1))
+    spawn(car().scale(1, 1))
 
     yield* waitUntil('basicPath');
     yield* basicLine().end(1, 1);
@@ -132,7 +110,7 @@ function* displayGrid(parent: Node): ThreadGenerator {
             ref={grid}
             width={'100%'}
             height={'100%'}
-            stroke={'#666'}
+            stroke={'#64778c'}
             start={0.5}
             end={0.5}
             lineWidth={3}
@@ -176,7 +154,7 @@ function createHouse(parent: Node, house: House): Reference<Img> {
              height={house.height}
              rotation={house.rotation}
              scale={0}
-             fill={'#ccc'}
+             fill={'#1e2022'}
         />
     );
 
@@ -217,7 +195,7 @@ function* displayHouseMarker(parent: Node, house: House): ThreadGenerator {
                 width={CELL_SIZE}
                 height={CELL_SIZE}
                 scale={0}
-                fill={'#555'}
+                fill={'#1e2022'}
             />);
 
             spawn(rect().scale(1, 1))
