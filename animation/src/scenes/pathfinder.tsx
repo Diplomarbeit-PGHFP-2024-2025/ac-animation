@@ -1,4 +1,4 @@
-import {Circle, Img, Node, makeScene2D, Grid, View2D, Rect, Line} from '@motion-canvas/2d';
+import {Circle, Img, Node, makeScene2D, Grid, View2D, Rect, Line, Camera} from '@motion-canvas/2d';
 import {
     all,
     any,
@@ -12,6 +12,7 @@ import {
     useDuration
 } from "@motion-canvas/core";
 import SAT, {Vector} from 'sat';
+import {Car} from "../custom/car";
 
 type House = {
     x: number;
@@ -29,16 +30,42 @@ const HOUSES: House[] = [
     {x: -300, y: 200, width: 300, height: 300, rotation: 45},
 ]
 
-const BASE_PATH: [number, number][] = [[-13, -4], [-10, -4], [-10, -3], [-9, -3], [-9, -2], [-8, -2], [-3, -2], [-3, -1], [-2, -1], [-2, 0], [-1, 0], [-1, 1], [1, 1], [1, 2], [12, 2]]
-const OPTIMIZED_PATH: [number, number][] = [[-13, -4], [-10, -4], [-3, -2], [1, 2], [12, 2]]
+const BASE_PATH: [number, number][] = [[-11.5, -4], [-10, -4], [-10, -3], [-9, -3], [-9, -2], [-8, -2], [-3, -2], [-3, -1], [-2, -1], [-2, 0], [-1, 0], [-1, 1], [1, 1], [1, 2], [12, 2]]
+const OPTIMIZED_PATH: [number, number][] = [[-11.5, -4], [-10, -4], [-3, -2], [1, 2], [13, 2]]
 
 
 export default makeScene2D(function* (view) {
+    const car = createRef<Car>();
+    const camera = createRef<Camera>();
+
+    view.add(<Camera ref={camera} position={[0, -4000]}>
+        <Car ref={car} position={[0, 0]}/>
+    </Camera>);
+    camera().scale(5)
+
+    yield* all(
+        camera().scale(1, 2),
+        camera().position([0, 0], 2)
+    )
+
+    yield* waitFor(1)
+
+    yield* all(
+        camera().scale(4.6, 1),
+        camera().position([4050, 1310], 1)
+    )
+
+    spawn(car().opacity(1, 2).do(() => car().remove()))
+
     yield* all(
         displayHouses(view),
         displayGrid(view),
         displayGridMarker(view),
-        displayPath(view)
+        displayPath(view),
+        chain(
+            waitUntil("cameraMove"),
+            view.position([-2000, 1080/2], 1)
+        )
     )
 })
 
@@ -50,6 +77,7 @@ function* displayPath(parent: Node): ThreadGenerator {
 
     const basePath: [number, number][] = BASE_PATH.map((point) => [point[0] * CELL_SIZE + CELL_SIZE / 2, point[1] * CELL_SIZE + CELL_SIZE / 2]);
     const optimizedPath: [number, number][] = OPTIMIZED_PATH.map((point) => [point[0] * CELL_SIZE + CELL_SIZE / 2, point[1] * CELL_SIZE + CELL_SIZE / 2]);
+    const car = createRef<Img>();
 
     parent.add(
         <>
@@ -68,6 +96,8 @@ function* displayPath(parent: Node): ThreadGenerator {
                 lineWidth={8}
             />,
             <Img
+                ref={car}
+                opacity={0}
                 src={"resources/car_top_down.svg"}
                 size={128}
                 position={() => optimizedLine().getPointAtPercentage(progress()).position}
@@ -75,6 +105,8 @@ function* displayPath(parent: Node): ThreadGenerator {
             />,
         </>
     );
+
+    spawn(car().opacity(1, 1))
 
     yield* waitUntil('basicPath');
     yield* basicLine().end(1, 1);

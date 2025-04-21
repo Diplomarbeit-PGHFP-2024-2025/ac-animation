@@ -1,0 +1,18 @@
+{
+  "version": 0,
+  "timeEvents": [
+    {
+      "name": "lookBattery",
+      "targetTime": 4.002384024094833
+    },
+    {
+      "name": "BatteryCharge",
+      "targetTime": 7.2724664729841155
+    },
+    {
+      "name": "driveAway",
+      "targetTime": 10.388979213237015
+    }
+  ],
+  "seed": 78656921
+}

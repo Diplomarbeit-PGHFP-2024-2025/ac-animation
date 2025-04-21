@@ -1,5 +1,10 @@
 {
   "version": 0,
-  "timeEvents": [],
+  "timeEvents": [
+    {
+      "name": "disappear",
+      "targetTime": 14.492890924560792
+    }
+  ],
   "seed": 3250015014
 }
