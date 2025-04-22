@@ -7,7 +7,7 @@
     },
     {
       "name": "endHighlighRegistry",
-      "targetTime": 4.260162657795698
+      "targetTime": 6.259858192592732
     },
     {
       "name": "highlighAgent",
@@ -15,7 +15,7 @@
     },
     {
       "name": "endHighlighAgent",
-      "targetTime": 7.493490856048704
+      "targetTime": 8.001350039489221
     },
     {
       "name": "highlighStation",
@@ -23,7 +23,7 @@
     },
     {
       "name": "endHighlighStation",
-      "targetTime": 9.567222762997991
+      "targetTime": 10.069791746611003
     },
     {
       "name": "Welche Stationen sind in meiner Nähe?",

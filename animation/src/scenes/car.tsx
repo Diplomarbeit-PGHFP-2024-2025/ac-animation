@@ -63,7 +63,7 @@ export default makeScene2D(function* (view) {
     yield* waitUntil("Logo")
 
     yield* all(
-        car().position([1400, AUTOCHARGE_Y + 50], 1.5),
+        car().position([1400, AUTOCHARGE_Y + 50], 2),
         tween(1.5, value => {
             car().soc(linear(value, 1, 0.7));
         })
@@ -76,7 +76,7 @@ export default makeScene2D(function* (view) {
     car().position([1400, BOSCH_Y - 50])
 
     yield* all(
-        car().position([-1400, BOSCH_Y - 50], 1.5),
+        car().position([-1400, BOSCH_Y - 50], 2),
         tween(1.5, value => {
             car().soc(linear(value, 0.7, 0.4));
         })
@@ -93,15 +93,15 @@ export default makeScene2D(function* (view) {
     yield* waitUntil("carCenter")
 
     yield* all(
-        car().position([0, 0], 1),
+        car().position([0, 0], 2),
         tween(1, value => {
             car().soc(linear(value, 0.4, 0.2));
         })
     )
 
-    yield* waitFor(0.1)
+    yield* waitFor(.5)
     car().look(Vector2.left)
-    yield* waitFor(1)
+    yield* waitUntil("message")
     let messagePosition = message().position();
     let agentPosition = car().position().add(AGENT_EYES_OFFSET);
     let direction = messagePosition.sub(agentPosition).normalized;
