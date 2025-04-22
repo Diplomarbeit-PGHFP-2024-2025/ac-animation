@@ -90,6 +90,10 @@ class CommunicationAnimation {
             this.appearAgent(this.agents[2]),
         )
 
+        yield* this.scaleAgent(this.agents[0], "Registry")
+        yield* this.scaleAgent(this.agents[1], "Agent")
+        yield* this.scaleAgent(this.agents[2], "Station")
+
         yield* this.animateMessage(this.REGISTRY_MESSAGE_PATH)
         yield* this.animateMessage(this.STATION_MESSAGE_PATH)
 
@@ -142,6 +146,13 @@ class CommunicationAnimation {
             agent.img().scale(1, 1),
             agent.rect().height(700, 1)
         )
+    }
+
+    * scaleAgent(agent: Agent, name: string): ThreadGenerator {
+        yield* waitUntil("highligh" + name)
+        yield* agent.img().scale(1.25, 0.5);
+        yield* waitUntil("endHighligh" + name)
+        yield* agent.img().scale(1, 0.5);
     }
 
     * disappearAgent(agent

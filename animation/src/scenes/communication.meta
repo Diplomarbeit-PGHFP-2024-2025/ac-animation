@@ -2,32 +2,56 @@
   "version": 0,
   "timeEvents": [
     {
+      "name": "highlighRegistry",
+      "targetTime": 1
+    },
+    {
+      "name": "endHighlighRegistry",
+      "targetTime": 3.17720389669497
+    },
+    {
+      "name": "highlighAgent",
+      "targetTime": 4.177203896694969
+    },
+    {
+      "name": "endHighlighAgent",
+      "targetTime": 5.177203896694969
+    },
+    {
+      "name": "highlighStation",
+      "targetTime": 6.177203896694969
+    },
+    {
+      "name": "endHighlighStation",
+      "targetTime": 7.177203896694969
+    },
+    {
       "name": "Welche Stationen sind in meiner Nähe?",
-      "targetTime": 1.6063050038317377
+      "targetTime": 8.17720389669497
     },
     {
       "name": "Stationen in deiner Nähe",
-      "targetTime": 4.26147746457206
+      "targetTime": 10.277203896694969
     },
     {
       "name": "Was sind deine Parameter?",
-      "targetTime": 6.36147746457206
+      "targetTime": 12.377203896694969
     },
     {
       "name": "Das sind meine Parameter",
-      "targetTime": 8.46147746457206
+      "targetTime": 14.477203896694968
     },
     {
       "name": "Ich möchte reservieren",
-      "targetTime": 10.561477464572059
+      "targetTime": 16.577203896694968
     },
     {
       "name": "Reservierung erfolgreich",
-      "targetTime": 12.661477464572059
+      "targetTime": 18.67720389669497
     },
     {
       "name": "disappear",
-      "targetTime": 21.160088024812538
+      "targetTime": 20.831196022849824
     }
   ],
   "seed": 3250015014
