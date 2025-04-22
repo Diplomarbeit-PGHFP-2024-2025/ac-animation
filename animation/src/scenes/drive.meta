@@ -11,11 +11,11 @@
     },
     {
       "name": "FullyCharge",
-      "targetTime": 3.6161655513212607
+      "targetTime": 3.677318757799239
     },
     {
       "name": "driveAway",
-      "targetTime": 6.544770916375801
+      "targetTime": 5.219784776019611
     },
     {
       "name": "end",

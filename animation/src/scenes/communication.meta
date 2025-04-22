@@ -3,55 +3,55 @@
   "timeEvents": [
     {
       "name": "highlighRegistry",
-      "targetTime": 2.8424708349828967
+      "targetTime": 3.5780651201277487
     },
     {
       "name": "endHighlighRegistry",
-      "targetTime": 3.5245683726508465
+      "targetTime": 4.260162657795698
     },
     {
       "name": "highlighAgent",
-      "targetTime": 5.9637444242513125
+      "targetTime": 6.699338709396164
     },
     {
       "name": "endHighlighAgent",
-      "targetTime": 7.698927097845916
+      "targetTime": 7.493490856048704
     },
     {
       "name": "highlighStation",
-      "targetTime": 8.198927097845916
+      "targetTime": 8.546153729936647
     },
     {
       "name": "endHighlighStation",
-      "targetTime": 8.881427883840773
+      "targetTime": 9.567222762997991
     },
     {
       "name": "Welche Stationen sind in meiner Nähe?",
-      "targetTime": 9.881427883840773
+      "targetTime": 10.567222762997991
     },
     {
       "name": "Stationen in deiner Nähe",
-      "targetTime": 13.918713571164236
+      "targetTime": 14.604508450321454
     },
     {
       "name": "Was sind deine Parameter?",
-      "targetTime": 16.707899802663253
+      "targetTime": 18.41935731263954
     },
     {
       "name": "Das sind meine Parameter",
-      "targetTime": 20.66788200762758
+      "targetTime": 21.751992471568904
     },
     {
       "name": "Ich möchte reservieren",
-      "targetTime": 25.64823062597359
+      "targetTime": 30.83499161319118
     },
     {
       "name": "Reservierung erfolgreich",
-      "targetTime": 32.561931715718444
+      "targetTime": 33.98461042672626
     },
     {
       "name": "disappear",
-      "targetTime": 35.969323853949206
+      "targetTime": 41.46648231956127
     }
   ],
   "seed": 3250015014
