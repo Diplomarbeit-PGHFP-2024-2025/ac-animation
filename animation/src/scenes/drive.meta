@@ -3,23 +3,23 @@
   "timeEvents": [
     {
       "name": "DriveTo",
-      "targetTime": 3.21224915012735
+      "targetTime": 1.4780093061730888
     },
     {
       "name": "StartCharge",
-      "targetTime": 5.253460943616905
+      "targetTime": 3
     },
     {
       "name": "FullyCharge",
-      "targetTime": 8.975239269281698
+      "targetTime": 3.6161655513212607
     },
     {
       "name": "driveAway",
-      "targetTime": 11.903844634336238
+      "targetTime": 6.544770916375801
     },
     {
       "name": "end",
-      "targetTime": 19.537009190342342
+      "targetTime": 13.60432043027847
     }
   ],
   "seed": 78656921

@@ -3,35 +3,35 @@
   "timeEvents": [
     {
       "name": "gridAppear",
-      "targetTime": 3.503408122221774
+      "targetTime": 12.527352077263595
     },
     {
       "name": "gridCells",
-      "targetTime": 5.364084440392568
+      "targetTime": 13.701247409866133
     },
     {
       "name": "basicPath",
-      "targetTime": 7.964602030407596
+      "targetTime": 16.848639877619352
     },
     {
       "name": "cameraMove",
-      "targetTime": 19.38458783814848
+      "targetTime": 29.35989332643505
     },
     {
       "name": "gridDisappear",
-      "targetTime": 13.817607528517948
+      "targetTime": 22.84155148355977
     },
     {
       "name": "optimizedPath",
-      "targetTime": 11.496396053318621
+      "targetTime": 20.002687409389093
     },
     {
       "name": "smoothPath",
-      "targetTime": 14.552425802750449
+      "targetTime": 23.632332200924353
     },
     {
       "name": "carFollowPath",
-      "targetTime": 17.65200208829764
+      "targetTime": 27.347495360924007
     }
   ],
   "seed": 3822982900

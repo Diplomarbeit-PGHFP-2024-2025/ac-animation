@@ -3,15 +3,15 @@
   "timeEvents": [
     {
       "name": "Logo",
-      "targetTime": 0.10514028337201993
+      "targetTime": 0
     },
     {
       "name": "bosch",
-      "targetTime": 1.3495042632944458
+      "targetTime": 1.5399412333077493
     },
     {
       "name": "carCenter",
-      "targetTime": 3.2147484374010906
+      "targetTime": 3.0399412333077493
     }
   ],
   "seed": 838630212
