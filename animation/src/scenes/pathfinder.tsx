@@ -42,7 +42,7 @@ export default makeScene2D(function* (view) {
         displayPath(view),
         chain(
             waitUntil("cameraMove"),
-            view.position([-2000, 1080/2], 1)
+            view.position([-3000, 1080/2], 1)
         )
     )
 })
